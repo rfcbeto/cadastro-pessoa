@@ -16,7 +16,7 @@ public class EstadoService {
 	private EstadoRepository repository;
 	
 	public List<Estado> findAll(){
-		List<Estado> estados = new ArrayList();
+		List<Estado> estados = new ArrayList<>();
 		estados = repository.findAll();
 		for (Estado estado : estados) {
 			System.out.println(estado);
@@ -28,4 +28,8 @@ public class EstadoService {
 	public Estado findOne(Long id) {
         return repository.findOne(id);
     }
+	
+	public void insert(Estado estado){
+		repository.save(estado);
+	}
 }

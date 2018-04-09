@@ -34,55 +34,23 @@
 		<h4>Cadastro de clientes</h4>
 	<hr />
 		<!-- th:action="@{/greeting}" th:object="${greeting}"  -->
-		<form class="form-horizontal" action="#" th:action="@{/cadastro/salvar}" th:object="${fto}" method="post" >
-			<fieldset>
-			<legend>Dados Pessoais</legend>
-			<div class="form-group">
-				<div class="col-md" th:classappend="${#fields.hasErrors('cpf')}? 'has-error'">
-					<label class="control-label col-sm-2" for="cpf">CPF:</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" placeholder="informe o CPF" th:field="*{cpf}"/>
-					</div>
-				</div>	
-			</div>
-			<div class="form-group" >
-				<div class="col-md" th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
-					<label class="control-label col-sm-2" for="nome">Nome:</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" id="nome" placeholder="informe o nome" th:field="*{nome}" />
-					</div>
-				</div>
-			</div>
-			<!--  -->
-			<div class="form-group">
-				<div class="col-md" th:classappend="${#fields.hasErrors('endereco.cep')}? 'has-error'">
-					<label class="control-label col-sm-2" for="cep">CEP:</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" placeholder="informe o CEP" th:field="*{endereco.cep}"/>
-					</div>
-				</div>	
-			</div>
-			<!-- div class="form-group" >
-				<label class="control-label col-sm-2" for="identidade">Identidade:</label>
-				<div class="col-sm-3">
-					<input type="text" class="form-control" id="identidade" placeholder="Informe a identidade" name="identidade" />
-				</div>
-				<label class="control-label col-sm-2" for="naturalidade">Naturalidade:</label>
-				<div class="col-sm-2">
-					<input type="text" class="form-control" id="naturalidade" placeholder="Informe a Naturalidade" name="naturalidade" />
-				</div>
-			</div -->
-			</fieldset>
-			  
-			
-			
-			<div class="form-group" >
-				<div class="control-label col-sm-6">
-					<button type="submit" class="btn btn-success">Salvar</button>
-					<button type="reset" class="btn btn-warning">Limpar</button>
-					<button type="submit" class="btn btn-danger">Cancelar</button>
-				</div>
-			</div>
+		<!-- form class="form-horizontal" action="#" th:action="@{/cadastro/salvarTeste}" th:object="${PessoaFto}" method="post" -->
+		<form action="#" th:action="@{/}" th:object="${personForm}" method="post">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+                </tr>
+                <tr>
+                    <td>CPF:</td>
+                    <td><input type="text" th:field="*{age}" /></td>
+                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+            </table>
 		</form>
 		
 <!-- 		

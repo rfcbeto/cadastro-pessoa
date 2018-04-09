@@ -1,19 +1,11 @@
 package br.com.cadastro.controller;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Iterator;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 @Controller
 @RequestMapping(value="/testeJson")
@@ -39,7 +31,7 @@ public class TesteJsonController {
 			}
 		}
 	}
-	
+	/*
 	public static void main(String[] args) throws Exception {
 		
 	    // Connect to the URL using java's native library
@@ -87,6 +79,6 @@ public class TesteJsonController {
 		} catch (Exception e) {
 			
 		}
-		*/
-	}
+		
+	}*/
 }

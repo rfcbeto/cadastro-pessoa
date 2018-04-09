@@ -32,7 +32,7 @@ public class Estado implements Serializable{
 	private String regiao;
 
 	
-	protected Estado() {
+	public Estado() {
 	}
 	
 	public Estado(Estado estado){
