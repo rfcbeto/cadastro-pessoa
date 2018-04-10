@@ -18,9 +18,12 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 }
 
 body {
-  background-color: lightgrey;
+  background-color: red; rgba(211, 211, 211, 0.6392156862745098);
   margin: auto;
   width: 80%;
- /* border: 1px solid rgba(3, 169, 60, 0.33); */
   padding: 10px;
+ /* 
+ 	background-color: lightgrey; 
+ 	border: 1px solid rgba(3, 169, 60, 0.33); 
+ */
 }

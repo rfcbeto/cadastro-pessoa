@@ -113,7 +113,7 @@ public class CadastroPessoaController {
 		end1.setComplemento("Apt 555");
 		end1.setMunicipio("Centro");
 		end1.setNumero(123);
-		end1.setRua("RUA Teste Cadastro");
+		end1.setRua("RUA teste cadastro");
 		lEndereco.add(end1);
 		p.setEndereco(lEndereco);
 		return p;

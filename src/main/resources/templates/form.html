@@ -35,15 +35,15 @@
 	<hr />
 		<!-- th:action="@{/greeting}" th:object="${greeting}"  -->
 		<!-- form class="form-horizontal" action="#" th:action="@{/cadastro/salvarTeste}" th:object="${PessoaFto}" method="post" -->
-		<form action="#" th:action="@{/}" th:object="${personForm}" method="post">
+		<form action="#" th:action="@{/cadTeste/checkPerson}" th:object="${person}" method="post">
             <table>
                 <tr>
                     <td>Name:</td>
                     <td><input type="text" th:field="*{name}" /></td>
                     <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
                 </tr>
-                <tr>
-                    <td>CPF:</td>
+            	<tr>
+                    <td>Age:</td>
                     <td><input type="text" th:field="*{age}" /></td>
                     <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
                 </tr>
