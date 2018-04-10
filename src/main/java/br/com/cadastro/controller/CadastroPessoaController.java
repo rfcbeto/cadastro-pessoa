@@ -7,21 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.com.cadastro.componete.ViaCEPClient;
 import br.com.cadastro.fto.PessoaFTO;
 import br.com.cadastro.model.Endereco;
 import br.com.cadastro.model.Pessoa;
@@ -31,14 +31,21 @@ import br.com.cadastro.service.PessoaService;
 @RequestMapping(value="/cadastro")
 public class CadastroPessoaController {
 	
-	
+	@RequestMapping(value="/cad", method = RequestMethod.GET)
+	public ModelAndView home(Model model){
+		ModelAndView view = new ModelAndView("cadastro");
+		model.addAttribute("fto", new PessoaFTO());
+
+		LOGGER.info("+++++CADASTRO INICIADO!+++++");
+		return view;
+	}
 	
 	/*
 	@Autowired
 	private EstadoRepository repository;*/
 	//private static final String URL_JSON = "http://wsloterias.azurewebsites.net/api/sorteio/getresultado/1";
 	
-	private static final Logger LOGGER = Logger.getLogger(InitController.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(CadastroPessoaController.class.getName());
 	
 	@Autowired
 	private PessoaService pessoaService;
@@ -68,43 +75,45 @@ public class CadastroPessoaController {
 	}
 	
 	@RequestMapping(value="/salvar", method = RequestMethod.POST)
-	public ModelAndView cadastrarPessoa (@Validated PessoaFTO fto, BindingResult result, HttpServletResponse response){
-		ModelAndView mv = new ModelAndView("index");
+	public String cadastrarPessoa (@Valid @ModelAttribute("fto") PessoaFTO fto, BindingResult result, 
+			HttpServletResponse response, RedirectAttributes redirectAttibutes){
+		//ModelAndView mv = new ModelAndView("index");
+		
 		if(result.hasErrors()){
-			mv = new ModelAndView("cadastro");
+			//mv = new ModelAndView("cadastro");
 			String errorMessage = "";
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			List<ObjectError> errors = result.getAllErrors();
 			for( ObjectError e : errors){
-  				errorMessage+= "ERROR: " + e.getDefaultMessage();
+  				errorMessage+= "ERROR: " + e.getDefaultMessage()+"\n";
   			}
-			mv.addObject("erro", errorMessage);
+			
 			LOGGER.info(">>> Tipo que deu merda:\n-"+errorMessage);
-			return mv;
+			return "cadastro";
 		}
 		
 		pessoaService.insert(getPessoa());
 		System.out.println(fto);
 		LOGGER.info(">>> SALVAR PESSOA");
-		return mv;
+		return "index";
 	}
 	
 	
 	public Pessoa getPessoa() {
 		Pessoa p = new Pessoa();
-		p.setNome("Vania Oliveira de Melo");
+		p.setNome("Etelvino da silva");
 		p.setCpf("12345678910");
-		p.setEstadoCivil("Casada");
-		p.setRg("11850646");
+		p.setEstadoCivil("solteiro");
+		p.setRg("123456789");
 		p.setSexo("Feminino");
 		List<Endereco> lEndereco = new ArrayList<>();
 		Endereco end1 = new Endereco();
-		end1.setBairro("Teixeira Dias");
-		end1.setCep("30644220");
-		end1.setComplemento("Apt 203");
-		end1.setMunicipio("Belo Horizonte");
-		end1.setNumero(575);
-		end1.setRua("Jose dos santos lage");
+		end1.setBairro("Centro");
+		end1.setCep("12345678");
+		end1.setComplemento("Apt 555");
+		end1.setMunicipio("Centro");
+		end1.setNumero(123);
+		end1.setRua("RUA Teste Cadastro");
 		lEndereco.add(end1);
 		p.setEndereco(lEndereco);
 		return p;
