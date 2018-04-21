@@ -19,12 +19,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+<<<<<<< Updated upstream:cadastro-pessoa-web/src/main/java/br/com/cadastro/controller/PessoaController.java
+=======
+
+>>>>>>> Stashed changes:src/main/java/br/com/cadastro/controller/CadastroPessoaController.java
 import br.com.cadastro.fto.PessoaFTO;
 import br.com.cadastro.model.Endereco;
 import br.com.cadastro.model.Pessoa;
 import br.com.cadastro.service.PessoaService;
 
 @Controller
+<<<<<<< Updated upstream:cadastro-pessoa-web/src/main/java/br/com/cadastro/controller/PessoaController.java
 @RequestMapping(value="/pessoa")
 public class PessoaController {
 	
@@ -34,6 +39,15 @@ public class PessoaController {
 	@RequestMapping(value="/form", method = RequestMethod.GET)
 	public ModelAndView initPessoa(Model model){
 		ModelAndView view = new ModelAndView(FORM);
+=======
+@RequestMapping(value="/cadastro")
+public class CadastroPessoaController {
+	
+	
+	@RequestMapping(value="/cad", method = RequestMethod.GET)
+	public ModelAndView home(Model model){
+		ModelAndView view = new ModelAndView("cadastro");
+>>>>>>> Stashed changes:src/main/java/br/com/cadastro/controller/CadastroPessoaController.java
 		model.addAttribute("fto", new PessoaFTO());
 
 		LOGGER.info("+++++CADASTRO INICIADO!+++++");
@@ -45,7 +59,11 @@ public class PessoaController {
 	private EstadoRepository repository;*/
 	//private static final String URL_JSON = "http://wsloterias.azurewebsites.net/api/sorteio/getresultado/1";
 	
+<<<<<<< Updated upstream:cadastro-pessoa-web/src/main/java/br/com/cadastro/controller/PessoaController.java
 	private static final Logger LOGGER = Logger.getLogger(PessoaController.class.getName());
+=======
+	private static final Logger LOGGER = Logger.getLogger(CadastroPessoaController.class.getName());
+>>>>>>> Stashed changes:src/main/java/br/com/cadastro/controller/CadastroPessoaController.java
 	
 	@Autowired
 	private PessoaService pessoaService;
@@ -54,7 +72,11 @@ public class PessoaController {
 	@RequestMapping(value="/listar", method = RequestMethod.GET)
 	public ModelAndView listarPessoas(){
 		LOGGER.info(">>>INICIO LISTAR PESSOA");
+<<<<<<< Updated upstream:cadastro-pessoa-web/src/main/java/br/com/cadastro/controller/PessoaController.java
 		ModelAndView mv = new ModelAndView(LIST);
+=======
+		ModelAndView mv = new ModelAndView("listapessoa");
+>>>>>>> Stashed changes:src/main/java/br/com/cadastro/controller/CadastroPessoaController.java
 		
 		List<Pessoa> pessoas = pessoaService.findAll();
 		mv.addObject("pessoas", pessoas);
@@ -65,11 +87,18 @@ public class PessoaController {
 	@RequestMapping(value="/get/{id}", method = RequestMethod.GET)
 	public ModelAndView getById(@PathVariable("id") Long id){
 		LOGGER.info(">>>INICIO LISTAR PESSOA");
+<<<<<<< Updated upstream:cadastro-pessoa-web/src/main/java/br/com/cadastro/controller/PessoaController.java
 		ModelAndView mv = new ModelAndView(LIST);
 		
 		List<Pessoa> pessoas = new ArrayList<>(); 
 		pessoas.add(pessoaService.findOne(id));
 		
+=======
+		ModelAndView mv = new ModelAndView("listapessoa");
+		
+		List<Pessoa> pessoas = new ArrayList<>(); 
+			pessoas.add(pessoaService.findOne(id));
+>>>>>>> Stashed changes:src/main/java/br/com/cadastro/controller/CadastroPessoaController.java
 		mv.addObject("pessoas", pessoas);
 		LOGGER.info(">>>FIM LISTAR PESSOA");
 		return mv;
@@ -81,7 +110,11 @@ public class PessoaController {
 		ModelAndView mv = new ModelAndView("index");
 		
 		if(result.hasErrors()){
+<<<<<<< Updated upstream:cadastro-pessoa-web/src/main/java/br/com/cadastro/controller/PessoaController.java
 			mv = new ModelAndView(FORM);
+=======
+			mv = new ModelAndView("cadastro");
+>>>>>>> Stashed changes:src/main/java/br/com/cadastro/controller/CadastroPessoaController.java
 			String errorMessage = "";
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			List<ObjectError> errors = result.getAllErrors();
@@ -115,7 +148,11 @@ public class PessoaController {
 		end1.setCep("12345678");
 		end1.setComplemento("Apt 555");
 		end1.setMunicipio("Centro");
+<<<<<<< Updated upstream:cadastro-pessoa-web/src/main/java/br/com/cadastro/controller/PessoaController.java
 		end1.setNumero(123);
+=======
+		end1.setNumero("123");
+>>>>>>> Stashed changes:src/main/java/br/com/cadastro/controller/CadastroPessoaController.java
 		end1.setRua("RUA teste cadastro");
 		lEndereco.add(end1);
 		

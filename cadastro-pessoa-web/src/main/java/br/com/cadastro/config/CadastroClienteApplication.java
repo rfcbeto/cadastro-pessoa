@@ -22,7 +22,12 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class CadastroClienteApplication {
 	
 	public static void main(String[] args) throws InterruptedException {
+<<<<<<< Updated upstream:cadastro-pessoa-web/src/main/java/br/com/cadastro/config/CadastroClienteApplication.java
+=======
+	
+>>>>>>> Stashed changes:src/main/java/br/com/cadastro/config/CadastroClienteApplication.java
 		SpringApplication.run(CadastroClienteApplication.class, args);
+		
 	}
 	
 	/*

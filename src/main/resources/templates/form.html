@@ -10,9 +10,24 @@
 		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
 		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	 <!-- FIM BOOTSTRAP -->
-	<link rel="stylesheet" href="../static/css/estilo.css" th:href="@{/css/estilo.css}" />	
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<link rel="stylesheet" href="../static/css/estilo.css" th:href="@{/css/estilo.css}" />
+	<style type="text/css">
+		fieldset { 
+		    display: block;
+		    margin-left: 10px;
+		    margin-right: 10px;
+		    padding-top: 0.35em;
+		    padding-bottom: 0.625em;
+		    padding-left: 0.75em;
+		    padding-right: 0.75em;
+		    border: 2px groove (internal value);
+		}
+		
+		body{
+		background-color: white;
+		}
+	</style>
 </head>
 <body ng-controller="meuController">
 		<img th:src="@{/imagens/icone.png}" alt="Icone Cadastro" style="width:41px;height:44px" />
@@ -20,8 +35,23 @@
 	<hr />
 		<!-- th:action="@{/greeting}" th:object="${greeting}"  -->
 		<!-- form class="form-horizontal" action="#" th:action="@{/cadastro/salvarTeste}" th:object="${PessoaFto}" method="post" -->
-		
-		<a th:href="@{/cadastro/cad}">Cadastrar Novo cliente</a>
+		<form action="#" th:action="@{/cadTeste/checkPerson}" th:object="${person}" method="post">
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+                </tr>
+            	<tr>
+                    <td>Age:</td>
+                    <td><input type="text" th:field="*{age}" /></td>
+                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+                </tr>
+                <tr>
+                    <td><button type="submit">Submit</button></td>
+                </tr>
+            </table>
+		</form>
 		
 <!-- 		
 		<div ng-controller="meuController">
@@ -47,22 +77,6 @@
     	
 		var app = angular.module('cadCliente',[]);
 		
-<<<<<<< Updated upstream:cadastro-pessoa-web/src/main/resources/templates/sucesso.html
-	</head>
-	<body ng-controller="hello">
-			<img th:src="@{/imagens/icone.png}" alt="Icone Cadastro" style="width:41px;height:44px" />
-			<h4>SISTEMA DE CADASTRO</h4>
-		<hr />
-			<form class="form-horizontal" action="/cad">
-				<div class="form-group">
-					<div class="control-label col-sm-2">
-						<h4>SUCESSO</h4>
-					</div>
-				</div>
-			</form>
-	    <hr />
-	</body>
-=======
 		app.controller('meuController', function($scope){
 			$scope.data = new Date();
 			$scope.exibe = function(seuNome){
@@ -71,5 +85,4 @@
 		});
 	</script>
 </body>
->>>>>>> Stashed changes:src/main/resources/templates/index.html
 </html>
