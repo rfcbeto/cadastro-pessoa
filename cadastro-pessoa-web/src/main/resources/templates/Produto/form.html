@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"  ng-app="homeCadCliente">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro</title>
+	<link rel="icon" type="../static/imagens/favicon.png" th:href="@{/imagens/favicon.png}" sizes="16x16"/>
+	
+		 <!-- INICIO BOOTSTRAP -->
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		 <!-- FIM BOOTSTRAP -->
+		 <link rel="stylesheet" href="../static/css/estilo.css" th:href="@{/css/estilo.css}" />	
+		 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY6GIc60uSo1I-_JLtfc5Xq9cg0HlZ_9s"></script>
+      	 <!-- script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY6GIc60uSo1I-_JLtfc5Xq9cg0HlZ_9s&callback=loadMap()" async defer></script-->
+      	 
+	</head>
+	<body onload="loadMap()">
+			<img th:src="@{/imagens/icone.png}" alt="Icone Cadastro" style="width:41px;height:44px" />
+			<h4>CADASTRAR PRODUTO</h4>
+		<hr />
+			
+			* produto
+				- Descrição
+				- Valor unitário
+			* Cliente
+				- Dados do cliente	
+			* Vendedor
+				- Dados do vendedor	
+	    	* Venda
+	    		- Quantidade
+	    		- Valor total
+	    		- Forma de pagamento
+	    		- Status
+	    		- Data Hora
+	    		
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"  ng-app="homeCadCliente">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro cliente</title>
+	<link rel="icon" type="../static/imagens/favicon.png" th:href="@{/imagens/favicon.png}" sizes="16x16"/>
+	
+		 <!-- INICIO BOOTSTRAP -->
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		 <!-- FIM BOOTSTRAP -->
+		<link rel="stylesheet" href="../static/css/estilo.css" th:href="@{/css/estilo.css}" />	
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		
+	</head>
+	<body>
+		<img th:src="@{/imagens/icone.png}" alt="Icone Cadastro" style="width:41px;height:44px" />
+		<h4>LISTA ENDEREÇOS</h4>
+		<hr />
+			<div layout:fragment="content">
+		      <table class="table table-bordered table-striped">
+		        <thead>
+		          <tr>
+		            <td>RUA</td>
+					<td>NUMERO</td>
+					<!-- td>DATA NASCIMENTO</td-->
+					<td>CEP</td>
+					<td>BAIRRO</td>
+					<td>MUNICIPIO</td>
+					<td>NOME</td>
+		          </tr>
+		        </thead>
+		        <tbody>
+		          <!-- tr th:if="${tasks.empty}">
+		            <td colspan="4">No tasks</td>
+		          </tr-->
+		          
+		          <!-- tr th:each="task : ${tasks}">
+		            <td th:text="${task.id}">1</td>
+		            <td><a href="view.html" th:href="@{'/' + ${task.id}}" th:text="${task.title}">Title ...</a></td>
+		            <td th:text="${task.text}">Text ...</td>
+		            <td th:text="${#calendars.format(task.dueTo)}">July 11, 2012 2:17:16 PM CDT</td-->
+		            
+		          <tr th:each="endereco : ${enderecos}">
+		            <td th:text="${endereco.rua}">0</td>
+					<td th:text="${endereco.numero}">2</td>
+					<!-- td th:text="${pessoa.dataNascimento}">3</td-->
+					<td th:text="${endereco.cep}">4</td>
+					<td th:text="${endereco.bairro}">5</td>
+					<td th:text="${endereco.municipio}">6</td>
+					<td th:text="${endereco.pessoa.nome}">7</td>
+		          </tr>
+		        </tbody>
+		      </table>
+		    </div>
+	    <hr />
+	</body>
+</html>
